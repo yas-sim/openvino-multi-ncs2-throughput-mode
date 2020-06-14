@@ -18,10 +18,11 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 
 Here's a simple throughput performance test result. If you don't use throughput mode (multiple infer requests with async API), the performance is the same regardless the number of NCS2s attached to the system.
 
-|#NCS|SYNC|ASYNC|
+|#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
 |x2|42.10|193.80|
 |x1|42.10|97.00|
+
 (FPS, googlenet-v1)
 
 Intel(r) Neural Computing Stick 2は幅広いホビープロジェクトに利用されています。安価でパフォーマンスが高く、入手性もよいためです。  
@@ -43,10 +44,11 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 
 以下にに簡単なスループット性能テストの結果を示します。Throughput mode (複数推論要求をAsync APIで送信)を使用しない場合、NCS2が複数あっても性能が伸びないことが分かります。  
 
-|#NCS|SYNC|ASYNC|
+|#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
 |x2|42.10|193.80|
 |x1|42.10|97.00|
+
 (FPS, googlenet-v1)
 
 ### Test log (reference)
