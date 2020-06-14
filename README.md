@@ -90,6 +90,8 @@ Use `Model Downloader` to download the required models.
 
 ### 3. Run the demo app
 
+Plug 1 or multiple NCS/NCS2 devices, then run the program.  
+
 ``` sh
 (Linux) python3 multi-ncs.py [--sync]
 (Win10) python multi-ncs.py [--sync]
