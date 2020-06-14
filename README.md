@@ -35,13 +35,13 @@ OpenVINOはIRモデルを`ie.read_network()` APIで読み込み、`IENetwork`オ
 ```Python
 E.g. exec_net = ie.load_network(net, 'MYRIAD', num_requests=4)
 ```
-NCS2を飽和させ、最大のパフォーマンスを引き出すためには同時に4つの推論要求を送信することが推奨されています。つまり、1つのデバイス当たり4つの`InferRequest`オブジェクトを生成するとよいということです。もしあなたがNCS2を2つ持っているなら`InferRequest`を8個生成するとよいということです。  
+NCS2を飽和させ、最大のパフォーマンスを引き出すためには同時に4つの推論要求を送信することが推奨されています。つまり、1つのデバイス当たり4つの`InferRequest`オブジェクトを生成するとよいということです。もしあなたがNCS2を2つ持っているなら`InferRequest`を8個生成してください。  
 また、複数のNCS2デバイスをまとめて1つのデバイスとして取り扱うためには`'MULTI:'`を`load_network()` APIでのデバイス指定に指定します。もしNCS2が2つあるなら、それぞれのデバイス名は`MYRIAD.x.y-ma2480`のようになるでしょう。この場合、デバイス名としては`'MULTI:MYRIAD.x.y1-ma2480,MYRIAD.x.y2-ma2480`のように指定します。   
 ```Python
 E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480', num_requests=4*2)
 ```
 
-いかに簡単なスループット性能テストの結果を示します。Throughput mode (複数推論要求をAsync APIで送信)を使用しない場合、NCS2が複数あっても性能が伸びないことが分かります。  
+以下にに簡単なスループット性能テストの結果を示します。Throughput mode (複数推論要求をAsync APIで送信)を使用しない場合、NCS2が複数あっても性能が伸びないことが分かります。  
 
 |#NCS|SYNC|ASYNC|
 |:--:|--:|--:|
