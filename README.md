@@ -25,7 +25,9 @@ Here's a simple throughput performance test result. If you don't use throughput 
 |x1|42.10|97.00|
 
 (FPS, googlenet-v1)
-
+  
+------
+  
 Intel(r) Neural Computing Stick 2は幅広いホビープロジェクトに利用されています。安価でパフォーマンスが高く、入手性もよいためです。  
 ここではあなたがもう少し性能を上げるためにプロジェクトにさらなるNCS2を追加しようと考えているなら**知っておかなければならないテクニック**を紹介しています。  
 OpenVINOはIRモデルを`ie.read_network()` APIで読み込み、`IENetwork`オブジェクトを生成し、そこから１つまたは複数の`ExecutableNetwork`オブジェクトを生成します。  
