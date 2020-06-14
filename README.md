@@ -1,4 +1,5 @@
 # Tip for Multiple NCS2 with OpenVINO - Throughput mode
+(日本語の説明はちょっと下にあります)  
 Intel(r) Neural Computing Stick 2 is widly used in many hobby projects. It's low cost, high performance and easy to get.  
 If you want a bit more performance in your project and considering to add some more NCS2s, this is a MUST KNOW tip to achieve your goal.  
 OpenVINO creates an `IENetwork` object from the IR model by `ie.read_network()` API and create one or more `ExecutableNetwork` object(s) from the `IENetwork` object.  
