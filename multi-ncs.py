@@ -53,6 +53,12 @@ def main(args):
             while reqId == -1:
                 reqId = execnet.get_idle_request_id()
             execnet.requests[reqId].async_infer(inputs={inblob:dummy})
+
+    if args.sync==False:
+        # Wait for all request to complete    
+        for i in range(num_requests):
+            status = execnet.requests[i].wait()
+
     end = time.monotonic()
 
     print('Performance = {} FPS'.format(niter/(end-start)))

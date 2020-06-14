@@ -21,8 +21,8 @@ Here's a simple throughput performance test result. If you don't use throughput 
 
 |#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
-|x2|42.10|193.80|
-|x1|42.10|97.00|
+|x2|40.26|177.62|
+|x1|41.02|92.68|
 
 (FPS, googlenet-v1)
   
@@ -49,8 +49,8 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 
 |#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
-|x2|42.10|193.80|
-|x1|42.10|97.00|
+|x2|40.26|177.62|
+|x1|41.02|92.68|
 
 (FPS, googlenet-v1)  
   
@@ -105,28 +105,28 @@ If you specify `--sync` option, the program doesn't use throughput mode (and use
 2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
 Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
 Start inferencing (100 times, ASYNC)
-Performance = 193.79844961117885 FPS
+Performance = 177.61989342803182 FPS
 
 >python multi-ncs.py --sync
 [E:] [BSL] found 0 ioexpander device
 2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
 Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
 Start inferencing (100 times, SYNC)
-Performance = 42.10526315789474 FPS
+Performance = 40.257648953302365 FPS
 
 >python multi-ncs.py
 [E:] [BSL] found 0 ioexpander device
 1 MYRIAD devices found. ['MYRIAD']
 Device name : MYRIAD
 Start inferencing (100 times, ASYNC)
-Performance = 96.99321047569933 FPS
+Performance = 92.6784059314222 FPS
 
 >python multi-ncs.py --sync
 [E:] [BSL] found 0 ioexpander device
 1 MYRIAD devices found. ['MYRIAD']
 Device name : MYRIAD
 Start inferencing (100 times, SYNC)
-Performance = 42.10526315789474 FPS
+Performance = 41.01722723543717 FPS
 ```
 ## Tested Environment  
 - Windows 10 x64 1909 and Ubuntu 18.04 LTS  
