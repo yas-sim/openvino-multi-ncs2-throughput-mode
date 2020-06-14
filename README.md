@@ -21,7 +21,7 @@ Here's a simple throughput performance test result. If you don't use throughput 
 
 |#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
-|x2|40.26|177.62|
+|x2|40.26|183.15|
 |x1|41.02|92.68|
 
 (FPS, googlenet-v1)
@@ -49,7 +49,7 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 
 |#NCS|SYNC|ASYNC(Throughput mode)|
 |:--:|--:|--:|
-|x2|40.26|177.62|
+|x2|40.26|183.15|
 |x1|41.02|92.68|
 
 (FPS, googlenet-v1)  
@@ -90,7 +90,7 @@ Use `Model Downloader` to download the required models.
 
 ### 3. Run the demo app
 
-Plug 1 or multiple NCS/NCS2 devices, then run the program.  
+Plug 1 or multiple NCS2 devices, then run the program.  
 
 ``` sh
 (Linux) python3 multi-ncs.py [--sync]
@@ -105,7 +105,7 @@ If you specify `--sync` option, the program doesn't use throughput mode (and use
 2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
 Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
 Start inferencing (100 times, ASYNC)
-Performance = 177.61989342803182 FPS
+Performance = 183.15018315016667 FPS
 
 >python multi-ncs.py --sync
 [E:] [BSL] found 0 ioexpander device

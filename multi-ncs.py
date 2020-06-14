@@ -55,9 +55,9 @@ def main(args):
             execnet.requests[reqId].async_infer(inputs={inblob:dummy})
 
     if args.sync==False:
-        # Wait for all request to complete    
+        # Wait for all requests to complete    
         for i in range(num_requests):
-            status = execnet.requests[i].wait()
+            execnet.requests[i].wait()
 
     end = time.monotonic()
 
