@@ -51,37 +51,6 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 
 (FPS, googlenet-v1)
 
-### Test log (reference)
-```sh
->python multi-ncs.py
-[E:] [BSL] found 0 ioexpander device
-2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
-Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
-Start inferencing (100 times, ASYNC)
-Performance = 193.79844961117885 FPS
-
->python multi-ncs.py --sync
-[E:] [BSL] found 0 ioexpander device
-2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
-Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
-Start inferencing (100 times, SYNC)
-Performance = 42.10526315789474 FPS
-
->python multi-ncs.py
-[E:] [BSL] found 0 ioexpander device
-1 MYRIAD devices found. ['MYRIAD']
-Device name : MYRIAD
-Start inferencing (100 times, ASYNC)
-Performance = 96.99321047569933 FPS
-
->python multi-ncs.py --sync
-[E:] [BSL] found 0 ioexpander device
-1 MYRIAD devices found. ['MYRIAD']
-Device name : MYRIAD
-Start inferencing (100 times, SYNC)
-Performance = 42.10526315789474 FPS
-```
-
 ### Required DL Models to Run This Demo
 
 The demo expects the following models in the Intermediate Representation (IR) format:
@@ -122,6 +91,36 @@ Use `Model Downloader` to download the required models.
 ```
 If you specify `--sync` option, the program doesn't use throughput mode (and use synchronous inferencing API)
 
+### Test log (reference)
+```sh
+>python multi-ncs.py
+[E:] [BSL] found 0 ioexpander device
+2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
+Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
+Start inferencing (100 times, ASYNC)
+Performance = 193.79844961117885 FPS
+
+>python multi-ncs.py --sync
+[E:] [BSL] found 0 ioexpander device
+2 MYRIAD devices found. ['MYRIAD.5.1-ma2480', 'MYRIAD.5.3-ma2480']
+Device name : MULTI:MYRIAD.5.1-ma2480,MYRIAD.5.3-ma2480
+Start inferencing (100 times, SYNC)
+Performance = 42.10526315789474 FPS
+
+>python multi-ncs.py
+[E:] [BSL] found 0 ioexpander device
+1 MYRIAD devices found. ['MYRIAD']
+Device name : MYRIAD
+Start inferencing (100 times, ASYNC)
+Performance = 96.99321047569933 FPS
+
+>python multi-ncs.py --sync
+[E:] [BSL] found 0 ioexpander device
+1 MYRIAD devices found. ['MYRIAD']
+Device name : MYRIAD
+Start inferencing (100 times, SYNC)
+Performance = 42.10526315789474 FPS
+```
 ## Tested Environment  
 - Windows 10 x64 1909 and Ubuntu 18.04 LTS  
 - Intel(r) Distribution of OpenVINO(tm) toolkit 2020.2 and 2020.3  
