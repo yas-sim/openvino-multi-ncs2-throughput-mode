@@ -52,8 +52,10 @@ E.g. exec_net = ie.load_network(net, 'MULTI:MYRIAD.1.1-ma2480,MYRIAD.1.2-ma2480'
 |x2|42.10|193.80|
 |x1|42.10|97.00|
 
-(FPS, googlenet-v1)
-
+(FPS, googlenet-v1)  
+  
+------
+  
 ### Required DL Models to Run This Demo
 
 The demo expects the following models in the Intermediate Representation (IR) format:
