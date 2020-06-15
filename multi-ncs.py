@@ -6,14 +6,13 @@ import numpy as np
 from openvino.inference_engine import IECore
 
 def main(args):
+    # Search available NCS2 devices on the system
     MYRIADs = []
     ie = IECore()
     for device in ie.available_devices:
         if 'MYRIAD' in device:
             MYRIADs.append(device)
-
     num_devices = len(MYRIADs)
-
     print('{} MYRIAD devices found. {}'.format(len(MYRIADs), MYRIADs))
     if num_devices==0:
         return
@@ -21,7 +20,7 @@ def main(args):
     model = 'public/googlenet-v1/FP16/googlenet-v1'
     net = ie.read_network(model+'.xml', model+'.bin')
 
-    # Buiilds up the device descriptor
+    # Build up the device descriptor
     if num_devices==1:
         device = 'MYRIAD'
     else:
@@ -47,12 +46,12 @@ def main(args):
     start = time.monotonic()
     for i in range(niter):
         if args.sync==True:
-            execnet.infer(inputs={inblob:dummy})
+            execnet.infer(inputs={inblob:dummy})                        # Synchronous inference
         else:
             reqId = -1
             while reqId == -1:
                 reqId = execnet.get_idle_request_id()
-            execnet.requests[reqId].async_infer(inputs={inblob:dummy})
+            execnet.requests[reqId].async_infer(inputs={inblob:dummy})  # Asynchronous inference
 
     if args.sync==False:
         # Wait for all requests to complete    
