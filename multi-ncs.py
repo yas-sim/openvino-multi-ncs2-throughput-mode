@@ -30,8 +30,8 @@ def main(args):
             device += MYRIAD
     print('Device name : {}'.format(device))
 
-    inblob   = list(net.inputs.keys())[0]
-    inshape  = net.inputs[inblob].shape
+    inblob   = list(net.input_info.keys())[0]
+    inshape  = net.input_info[inblob].tensor_desc.dims
     outblob  = list(net.outputs.keys())[0]
     outshape = net.outputs[outblob].shape 
 
